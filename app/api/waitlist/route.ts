@@ -43,18 +43,32 @@ export async function POST(request: Request) {
 async function store(lead: unknown) {
   const webhook = process.env.WAITLIST_WEBHOOK_URL;
   if (webhook) {
-    const response = await fetch(webhook, {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(lead),
-    });
+    const response = await postJson(webhook, lead);
     if (!response.ok) throw new Error("Webhook failed");
+    const text = await response.text();
+    if (text.includes('"ok":false') || text.includes('"ok": false')) {
+      throw new Error("Webhook failed");
+    }
     return;
   }
 
   const dir = path.join(process.cwd(), "data");
   await mkdir(dir, { recursive: true });
   await appendFile(path.join(dir, "waitlist.jsonl"), `${JSON.stringify(lead)}\n`, "utf8");
+}
+
+async function postJson(url: string, payload: unknown) {
+  const posted = await fetch(url, {
+    method: "POST",
+    redirect: "manual",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+  if (posted.status < 300 || posted.status >= 400) return posted;
+
+  const location = posted.headers.get("location");
+  if (!location) return posted;
+  return fetch(new URL(location, url), { method: "GET", redirect: "follow" });
 }
 
 function allow(request: Request) {

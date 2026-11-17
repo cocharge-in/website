@@ -52,7 +52,7 @@ Pages:
 
 The waitlist form asks for name, Indian mobile number, pincode, and role (`host` or `chargee`). City, society or area, plug, and vehicle are optional. Plug choices for hosts: 15A household socket, about 3.3 kW, 7.2 kW or faster, or not sure.
 
-`POST /api/waitlist` validates the payload, ignores honeypot hits, and rate-limits repeats. Each accepted signup is one JSON object per line in `data/waitlist.jsonl` (gitignored). If `WAITLIST_WEBHOOK_URL` is set, the same JSON is posted there instead of written to the file. `source` records which page the form was on: `home`, `host`, `charge`, or `about`.
+`POST /api/waitlist` validates the payload, ignores honeypot hits, and rate-limits repeats. Locally, each accepted signup is one JSON object per line in `data/waitlist.jsonl` (gitignored). In production, set `WAITLIST_WEBHOOK_URL` to the Google Apps Script web app from `scripts/waitlist-google-sheet.gs`. That script appends a row to a Google Sheet named Waitlist. The API follows Apps Script’s redirect and posts the JSON body again, because a normal redirect would drop it. `source` records which page the form was on: `home`, `host`, `charge`, or `about`.
 
 Phone numbers are stored as 10 digits. A leading `0` or `+91` is accepted.
 
@@ -62,7 +62,7 @@ The website does not take bookings, show a map, talk to a charger, or take payme
 
 Still ahead, in roughly this order:
 
-1. **Waitlist in production.** A real destination for signups, and a way to read them by pincode and role. The local file is only for development.
+1. **Turn the sheet on.** Create the Google Sheet, deploy `scripts/waitlist-google-sheet.gs` as a web app, set `WAITLIST_WEBHOOK_URL` on Vercel, and redeploy. Until that URL is set, production signups are not saved.
 2. **Accounts.** Mobile OTP. A person can host, charge, or both. Identity check for hosts before they can list.
 3. **Host listing.** Plug, speed, hourly rate, and a calendar of open hours.
 4. **Slot engine.** Enforce the 1-hour minimum, 30-minute steps, 15-minute buffer, and no overlapping bookings.

@@ -15,4 +15,4 @@ Open [http://localhost:3000](http://localhost:3000).
 
 Signups are appended to `data/waitlist.jsonl` on this machine. That file is gitignored.
 
-To forward each signup as JSON in production, set `WAITLIST_WEBHOOK_URL`. See `.env.example`.
+In production, set `WAITLIST_WEBHOOK_URL` to the web app URL from `scripts/waitlist-google-sheet.gs`. That script adds each signup as a row in a Google Sheet.
