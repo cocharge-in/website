@@ -43,9 +43,10 @@ export default function AboutPage() {
           CoCharge keeps a planned fee of about 12% and passes the rest on about two days later.
         </p>
         <p>
-          Bookings start at one hour and grow by 30 minutes. A 15-minute buffer sits between
-          sessions so two vehicles are not negotiating the same spot. A 10-minute grace period
-          covers a slow walk back. After that, an overstay can be reported.
+          Bookings start at one hour and grow by 30 minutes. Five minutes before the end, the
+          host and the driver are both reminded to unplug and leave. A 10-minute grace period
+          covers a slow walk back. After that, the host can report an overstay and call the driver.
+          The driver can call the host.
         </p>
       </section>
 

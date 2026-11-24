@@ -34,7 +34,7 @@ export function Footer() {
           <ul>
             <li>1 hour minimum</li>
             <li>Then 30-minute steps</li>
-            <li>15-minute handover buffer</li>
+            <li>5-minute unplug reminder</li>
             <li>Host sets the hourly rate</li>
           </ul>
         </div>

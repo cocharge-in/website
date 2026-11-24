@@ -22,7 +22,7 @@ const faqs = [
   },
   {
     q: "How long can I book?",
-    a: "One hour minimum. After that, time is added in 30-minute steps. Every confirmed booking keeps a 15-minute buffer so the next person is not waiting in the same spot.",
+    a: "One hour minimum. After that, time is added in 30-minute steps. Five minutes before the end, the host and the driver both get a reminder to unplug and leave.",
   },
   {
     q: "Who can use it?",
@@ -222,8 +222,8 @@ export default function HomePage() {
           <article className="trust">
             <h3>Overstay has a cost</h3>
             <p>
-              A 10-minute grace period, then the host can report an overstay. The planned penalty
-              is about ₹200 for each extra half hour.
+              A 10-minute grace period, then the host can report an overstay and call the driver.
+              The driver can call the host. The planned penalty is about ₹200 for each extra half hour.
             </p>
           </article>
         </div>

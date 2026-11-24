@@ -24,7 +24,7 @@ const faqs = [
   },
   {
     q: "What if they stay too long?",
-    a: "There is a 10-minute grace period. After that you can report an overstay, and the planned charge is about ₹200 per extra half hour.",
+    a: "There is a 10-minute grace period. After that you can report an overstay and call the driver. The planned charge is about ₹200 per extra half hour.",
   },
   {
     q: "When do I get paid?",
@@ -82,7 +82,7 @@ export default function HostPage() {
             <b>02</b>
             <div>
               <strong>Accept a slot</strong>
-              <p>One hour minimum, then 30-minute steps. A 15-minute buffer is held after it.</p>
+              <p>One hour minimum, then 30-minute steps. Five minutes before the end, you and the driver are reminded to unplug and leave.</p>
             </div>
           </li>
           <li>

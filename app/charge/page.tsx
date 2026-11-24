@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     q: "What if I am late to move the vehicle?",
-    a: "You have a 10-minute grace period. After that the host can report an overstay, with a planned penalty of about ₹200 per extra half hour.",
+    a: "You have a 10-minute grace period. After that the host can report an overstay and call you. You can call the host. The planned penalty is about ₹200 per extra half hour.",
   },
   {
     q: "Will I see the plug before I book?",
@@ -53,7 +53,7 @@ export default function ChargePage() {
           </article>
           <article className="card">
             <h3>A slot you can plan around</h3>
-            <p>Pick a start time. The end time starts at one hour and moves in half-hour steps. The next guest is buffered by 15 minutes.</p>
+            <p>Pick a start time. The end time starts at one hour and moves in half-hour steps. Five minutes before the end, you and the host are reminded to unplug and leave.</p>
           </article>
           <article className="card">
             <h3>The rate is on the listing</h3>
@@ -96,7 +96,7 @@ export default function ChargePage() {
             <b>04</b>
             <div>
               <strong>Move the vehicle when the slot ends</strong>
-              <p>Ten minutes of grace, then an overstay can be reported.</p>
+              <p>Ten minutes of grace, then the host can report an overstay and call you. You can call the host.</p>
             </div>
           </li>
         </ol>

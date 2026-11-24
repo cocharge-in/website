@@ -6,7 +6,7 @@ export function ListingCard() {
         <span>Today</span>
       </div>
       <p className="listing-time">6:00–7:30</p>
-      <p className="listing-meta">1 hour 30 min · buffer held until 7:45</p>
+      <p className="listing-meta">1 hour 30 min · reminder at 7:25</p>
       <dl className="listing-facts">
         <div>
           <dt>Plug</dt>
